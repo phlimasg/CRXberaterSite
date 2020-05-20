@@ -74,15 +74,21 @@
       right: 0;
       position: fixed;
     }
+    @media screen and (max-width: 767px) {
+      .col-sm-8 {
+        width: 100%;
+      }
+    }
+    
 </style>
 <body>
   
 <div class="container-fluid ">
   <div class="row ">
-    <div class="col-sm-8 bg-black tela-100">
-      <img src="img/logo.png" alt="CRX berater logo" srcset="" class="img">
+    <div class="col-sm-8 bg-black tela-100" id="logo" style="width: 100%;">
+      <img src="img/logo.png" alt="CRX berater logo" srcset="" class="img" style="display: none;" id="img-logo">
     </div>
-    <div class="col-sm-4 tela-100 bg-yellow ">
+    <div class="col-sm-4 tela-100 bg-yellow " id="contato" style="display: none;">
       <div class="row v-center">
         <div class="col-sm-12 ">
           <div class="row">
@@ -111,5 +117,25 @@
   </div>
 </div>
 
+<script>
+$('#img-logo').show(500);
+var width = $(window).width();
+
+if(width > 767){
+  setInterval(function () {
+  
+  $('#logo').animate({
+  width: '66.66%'
+})
+$('#contato').fadeIn(1000)
+},500)  
+}
+else{
+  $('#contato').fadeIn(1000)
+}
+
+
+  
+</script>
 </body>
 </html>
